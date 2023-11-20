@@ -10,7 +10,7 @@ function addBook(id, title, author, price, quantity) {
     books.push([id, title, author, price, quantity]);
 }
 
-// Display all information with proper formatting
+// To display all information with proper formatting
 function displayBooks() {
     console.log(" ID\tTitle\t\tAuthor\t\tPrice\tQuantity");
     for (let i = 0; i < books.length; i++) {
