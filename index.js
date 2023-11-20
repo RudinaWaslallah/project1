@@ -1,8 +1,8 @@
 // Array to store book information
 let books = [
-    [1, "BookT1", "Author1", 10, 50],
-    [2, "BookT2", "Author2", 15, 30],
-    [3, "BookT3", "Author3", 20, 20],
+    [1, "Life", "Ahmed", 45, 50],
+    [2, "Happiness", "Rayan", 40, 30],
+    [3, "The sun", "Rawan", 30, 20],
 ];
 
 // Add a new book
@@ -10,13 +10,12 @@ function addBook(id, title, author, price, quantity) {
     books.push([id, title, author, price, quantity]);
 }
 
-// Display all information
+// Display all information with proper formatting
 function displayBooks() {
     console.log(" ID\tTitle\t\tAuthor\t\tPrice\tQuantity");
     for (let i = 0; i < books.length; i++) {
-        console.log(
-            books[i][0] + "\t" + books[i][1] + "\t" + books[i][2] + "\t" + books[i][3] + "\t" + books[i][4]
-        );
+        const [id, title, author, price, quantity] = books[i];
+        console.log(`${id}\t${title.padEnd(18)}${author.padEnd(18)}${price}\t${quantity}`);
     }
 }
 
@@ -38,7 +37,7 @@ function searchBook(query) {
 function sellBook(title, quantity, balance) {
     let book = searchBook(title);
 
-    if (book && book[3] >= quantity) {
+    if (book && book[4] >= quantity) {
         let totalCost = book[3] * quantity;
 
         if (totalCost <= balance) {
@@ -58,13 +57,13 @@ function sellBook(title, quantity, balance) {
     }
 }
 
-
-// Example of how to use the functions
-addBook(4, "BookT4 ", "Author4", 25, 15);
+// Example 
+addBook(4, "in the cloud", "Reem", 25, 15, 2); 
 displayBooks();
 
-let result = searchBook("Author2");
+// Sorting based on author
+let result = searchBook("Rayan");
 console.log("Search result:", result);
 
-sellBook("Book Title 1", 5, 200);
+sellBook("Life", 1, 45);
 displayBooks();
